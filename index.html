@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>AI占いちゃん</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/button.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=New+Tegomin&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <div id="button_div">
+            <div class="new-tegomin-regular">
+                <a class="a_button" href="javascript:begin()">占ってみる</a>
+            </div>
+        </div>
+        <div id="loading_div">
+            <div class="loader"></div>
+        </div>
+        <div id="div_bottom">
+            <div class="new-tegomin-regular">
+                <p>占っています</p>
+                <p>しばらくお待ちください</p>
+            </div>
+        </div>
+        <div id="div_center" class="new-tegomin-regular">
+        </div>
+    </div>
+
+<script>
+    // ローディング表示を非表示にする
+    document.getElementById('loading_div').style.display = 'none';
+
+    // 占っています表示
+    document.getElementById('div_bottom').style.display = 'none';
+
+    // 占い結果表示
+    document.getElementById('div_center').style.display = 'none';
+
+    // 読み込み中画像を表示させる
+    function begin() {
+        document.getElementById('button_div').style.display = 'none';
+        document.getElementById('loading_div').style.display = 'block';
+        document.getElementById('div_bottom').style.display = 'block';
+
+        let url = "https://fortunereading.azurewebsites.net/result";
+        fetch(url, {"content" : "HOGE"})
+            .then(function(response) {
+                if (!response.ok) {
+                    showImage("AIが寝ぼけているようです...");
+                }
+                return response.json();
+            })
+            .then(function(promise) {
+                showImage(promise.content);
+            })
+            .catch(function(err) {
+                showImage("AIが応答しません...");
+            });
+    }
+
+    // 今日のひとこと画像を表示させる
+    function showImage(content) {
+
+        document.getElementById('loading_div').style.display = 'none';
+        document.getElementById('div_bottom').style.display = 'none';
+
+        div_center = document.getElementById('div_center');
+        div_center.style.display = 'block';
+        div_center.innerHTML = content;
+        div_center.classList.add("active");
+    }
+
+</script>
+</body>
+</html>
+
