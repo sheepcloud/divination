@@ -1,0 +1,2 @@
+# divination
+占い
