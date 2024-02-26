@@ -13,24 +13,29 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
-    <div>
-        <div id="button_div">
-            <div class="new-tegomin-regular">
-                <a class="a_button" href="javascript:begin()">占ってみる</a>
-            </div>
-        </div>
-        <div id="loading_div">
-            <div class="loader"></div>
-        </div>
-        <div id="div_bottom">
-            <div class="new-tegomin-regular">
-                <p>占っています</p>
-                <p>しばらくお待ちください</p>
-            </div>
-        </div>
-        <div id="div_center" class="new-tegomin-regular">
+    <div id="button_div" class="new-tegomin-regular">
+        <div id="item1">
+            <p>～ AI占い ～</p>
+            <a class="btn btn--orange btn--shadow" href="javascript:begin()">占ってみる</a>
+            <p>～ AIタロット占い ～</p>
+            <a class="btn btn--orange btn--shadow" href="javascript:tarot(1)">過去</a>
+            <a class="btn btn--orange btn--shadow" href="javascript:tarot(0)">現在</a>
+            <a class="btn btn--orange  btn--shadow" href="javascript:tarot(2)">未来</a>
         </div>
     </div>
+    <div id="loading_div">
+        <!--<div class="loader"></div>-->
+        <img src="static/images/reading/loading_face.png" class="loading_face">
+        <img src="static/images/reading/loading_circle_in.png" class="loading_circle_in">
+        <img src="static/images/reading/loading_circle_out.png" class="loading_circle_out">
+    </div>
+    <div id="div_bottom">
+        <div class="new-tegomin-regular">
+            <p>占っています</p>
+            <p>しばらくお待ちください</p>
+        </div>
+    </div>
+    <div id="div_center" class="new-tegomin-regular"></div>
 
 <script>
     // ローディング表示を非表示にする
@@ -52,28 +57,142 @@
         fetch(url, {"content" : "HOGE"})
             .then(function(response) {
                 if (!response.ok) {
-                    showImage("AIが寝ぼけているようです...");
+                    showContent("AIが寝ぼけているようです...");
                 }
                 return response.json();
             })
             .then(function(promise) {
-                showImage(promise.content);
+                showContent(promise.content);
             })
             .catch(function(err) {
-                showImage("AIが応答しません...");
+                showContent("AIが応答しません...");
             });
     }
 
-    // 今日のひとこと画像を表示させる
-    function showImage(content) {
+    function tarot(tense) {
+        document.getElementById('button_div').style.display = 'none';
+        document.getElementById('loading_div').style.display = 'block';
+        document.getElementById('div_bottom').style.display = 'block';
 
+        card_no = Math.floor(Math.random() * 21);
+        reverse = Math.floor(Math.random() * 2);
+
+        let url = "https://fortunereading.azurewebsites.net/tarot_result?tense=" + tense + "&card_no=" + card_no + "&reverse=" + reverse;
+        fetch(url, {"content" : "HOGE"})
+            .then(function(response) {
+                if (!response.ok) {
+                    showContent("AIが寝ぼけているようです...");
+                }
+                return response.json();
+            })
+            .then(function(promise) {
+                showImage(promise.content, card_no, reverse);
+            })
+            .catch(function(err) {
+                showContent("AIが応答しません...");
+            });
+
+//         setTimeout(() => {
+//             showImage("テスト\n\
+// テストテストテストテストテストテストテストテスト\n\
+// テストテストテストテストテストテストテストテストテス\n\
+// テスト\n\
+// テストテストテストテストテストテストテストテスト\n\
+// テストテストテストテストテストテストテストテストテス\n\
+// テスト\n\
+// テストテストテストテストテストテストテストテスト\n\
+// テストテストテストテストテストテストテストテストテス\n\
+// トテストテストテストテストテスト", card_no, reverse);
+//         }, 5000);
+    }
+
+    // 占い結果を表示させる
+    function showContent(content) {
         document.getElementById('loading_div').style.display = 'none';
         document.getElementById('div_bottom').style.display = 'none';
 
         div_center = document.getElementById('div_center');
+
+        let new_element = document.createElement('div');
+        new_element.style.padding = "1em";
+        new_element.textContent = content;
+        div_center.appendChild(new_element);
+
         div_center.style.display = 'block';
-        div_center.innerHTML = content;
         div_center.classList.add("active");
+    }
+
+    function showImage(content, card_no, reverse) {
+
+        image_ulr = [
+            "00_Fool.png",
+            "01_Magician.png",
+            "02_High_Priestess.png",
+            "03_Empress.png",
+            "04_Emperor.png",
+            "05_Hierophant.png",
+            "06_The_Lovers.png",
+            "07_Chariot.png",
+            "08_Strength.png",
+            "09_Hermit.png",
+            "10_Wheel_of_Fortune.png",
+            "11_Justice.png",
+            "12_Hanged_Man.png",
+            "13_Death.png",
+            "14_Temperance.png",
+            "15_Devil.png",
+            "16_Tower.png",
+            "17_Star.png",
+            "18_Moon.png",
+            "19_Sun.png",
+            "20_Judgement.png",
+            "21_World.png",
+        ];
+
+        card_name = [
+            "0 愚者",
+            "I 魔術師",
+            "II 女教皇",
+            "III 女帝",
+            "IV 皇帝",
+            "V 教皇",
+            "VI 恋人",
+            "VII 戦車",
+            "VIII 力",
+            "IX 隠者",
+            "X 運命の輪",
+            "XI 正義",
+            "XII 吊された男",
+            "XIII 死神",
+            "XIV 節制",
+            "XV 悪魔",
+            "XVI 塔",
+            "XVII 星",
+            "XVIII 月",
+            "XIX 太陽",
+            "XX 審判",
+            "XXI 世界",
+    ];
+
+        div_center = document.getElementById('div_center');
+
+        let new_element3 = document.createElement('div');
+        new_element3.style.textAlign = 'center';
+        div_center.appendChild(new_element3);
+
+        let new_element = document.createElement('img');
+        new_element.src = "static/images/RWS_Tarot/" + image_ulr[card_no];
+        if (reverse == 1) {
+            new_element.style.rotate = '180deg'; 
+        }
+        new_element3.appendChild(new_element);
+
+        let new_element2 = document.createElement('div');
+        new_element2.style.textAlign = 'center';
+        new_element2.textContent = card_name[card_no];
+        div_center.appendChild(new_element2);
+
+        showContent(content);
     }
 
 </script>

@@ -3,20 +3,22 @@ html {
 }
 
 body {
-  background-image: radial-gradient(circle farthest-corner at center, orange 0%, red 100%);
+    background-image: radial-gradient(circle farthest-corner at center, orange 0%, red 100%);
+    height: 100%;
+    margin: 0px;
+}
+
+img {
+    text-align: center;
 }
 
 #div_center {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: auto;
-    top: 50%;
-    left: 50%;
+    position: flex;
     display: none;
     opacity: 0;
-    width: 90%;
-    max-width: 90%;
+    width: 100%;
+    max-width: 100%;
+    padding-top: 1em;
     white-space: pre-wrap;
 }
 
@@ -60,23 +62,27 @@ body {
     max-height: 100%;
 }
 
-a.a_button{ 
-	color: #fff; 
-	background-color: crimson; 
-	padding: 10px; 
-	text-decoration: none; 
-} 
+a.btn--orange {
+    color: #fff;
+    background-color: #eb6100;
+    border-bottom: 5px solid #b84c00;
+}
+a.btn--shadow {
+    -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
 
 #button_div{
-    position: absolute;
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#item1{
     text-align: center;
-    transform: translate(-50%, -50%);
-    width: 350px;
-    height: 120px;
-    top: 50%;
-    left: 50%;
-    max-width: 100%;
-    max-height: 100%;
 }
 
 .new-tegomin-regular {
@@ -96,6 +102,73 @@ a.a_button{
     left: 50%;
     max-width: 100%;
     max-height: 100%;
+}
+
+.loading_circle_out {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+    animation: circleRotateCounterClockwise 3s infinite linear;
+
+    mix-blend-mode: multiply;
+}
+
+@keyframes circleRotateCounterClockwise{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+.loading_circle_in {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+    animation: circleRotateClockwise 5s infinite linear;
+
+    mix-blend-mode: multiply;
+}
+
+@keyframes circleRotateClockwise{
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-180deg);
+    }
+}
+
+.loading_face {
+    position: absolute;
+    width: 360px;
+    height: 360px;
+    top: calc(50% - 180px);
+    left: calc(50% - 180px);
+
+    animation: faceMove 1s infinite linear;
+    mix-blend-mode: multiply;
+}
+
+@keyframes faceMove{
+    0%, 100% {
+        transform: scale(100%);
+    }
+
+    33% {
+        transform: scale(95%);
+    }
+
+    66% {
+        transform: scale(105%);
+    }
 }
 
 .loader {
