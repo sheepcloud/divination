@@ -23,8 +23,6 @@ img {
 }
 
 #div_center.active {
-    display: block;
-
     animation-name: fadeIn;
     animation-fill-mode:forwards;
     animation-duration:2s;
@@ -118,13 +116,17 @@ a.btn--shadow {
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 }
 
-#button_div{
+.container{
     display: flex;
     flex-flow: wrap;
     width: 100%;
     height: 100%;
     align-items: center;
     justify-content: space-around;
+}
+
+#div_back {
+    display: none;
 }
 
 #item1{

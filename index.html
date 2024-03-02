@@ -13,6 +13,7 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="container">
     <div id="button_div" class="new-tegomin-regular">
         <div id="item1">
             <div class="div_message">AIお告げ</div>
@@ -39,6 +40,8 @@
         </div>
     </div>
     <div id="div_center" class="new-tegomin-regular"></div>
+    <div id="div_back" class="new-tegomin-regular"><a class="btn" href="javascript:window.location.reload()">戻る</a></div>
+    </div>
 
 <script>
     // ローディング表示を非表示にする
@@ -128,6 +131,9 @@
 
         div_center.style.display = 'block';
         div_center.classList.add("active");
+
+        div_back = document.getElementById('div_back');
+        div_back.style.display = 'block';
     }
 
     function showImage(content, card_no, reverse) {
