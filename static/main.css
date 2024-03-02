@@ -65,6 +65,27 @@ img {
     background-position: center;
 }
 
+.div_message {
+    width: 360px;
+    height: 125px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 46px;
+    background-image: url("../static/images/decoration/penga-0193.png");
+    background-repeat: no-repeat;
+    background-size: 360px;
+    background-position: center;
+    align-items: center;
+}
+
+.div_space_l {
+    height: 24px;
+}
+
+.div_space_s {
+    height: 6px;
+}
+
 .center {
     position: absolute;
     transform: translate(-50%, calc(-50% - 16px));
