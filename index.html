@@ -77,33 +77,37 @@
         card_no = Math.floor(Math.random() * 21);
         reverse = Math.floor(Math.random() * 2);
 
-        let url = "https://fortunereading.azurewebsites.net/tarot_result?tense=" + tense + "&card_no=" + card_no + "&reverse=" + reverse;
-        fetch(url, {"content" : "HOGE"})
-            .then(function(response) {
-                if (!response.ok) {
-                    showContent("AIが寝ぼけているようです...");
-                }
-                return response.json();
-            })
-            .then(function(promise) {
-                showImage(promise.content, card_no, reverse);
-            })
-            .catch(function(err) {
-                showContent("AIが応答しません...");
-            });
-
-//         setTimeout(() => {
-//             showImage("テスト\n\
-// テストテストテストテストテストテストテストテスト\n\
-// テストテストテストテストテストテストテストテストテス\n\
-// テスト\n\
-// テストテストテストテストテストテストテストテスト\n\
-// テストテストテストテストテストテストテストテストテス\n\
-// テスト\n\
-// テストテストテストテストテストテストテストテスト\n\
-// テストテストテストテストテストテストテストテストテス\n\
-// トテストテストテストテストテスト", card_no, reverse);
-//         }, 5000);
+        debug = false;
+        if (debug == false) {
+            let url = "https://fortunereading.azurewebsites.net/tarot_result?tense=" + tense + "&card_no=" + card_no + "&reverse=" + reverse;
+            fetch(url, {"content" : "HOGE"})
+                .then(function(response) {
+                    if (!response.ok) {
+                        showContent("AIが寝ぼけているようです...");
+                    }
+                    return response.json();
+                })
+                .then(function(promise) {
+                    showImage(promise.content, card_no, reverse);
+                })
+                .catch(function(err) {
+                    showContent("AIが応答しません...");
+                });
+        }
+        else {
+            setTimeout(() => {
+                showImage("テスト\n\
+テストテストテストテストテストテストテストテスト\n\
+テストテストテストテストテストテストテストテストテス\n\
+テスト\n\
+テストテストテストテストテストテストテストテスト\n\
+テストテストテストテストテストテストテストテストテス\n\
+テスト\n\
+テストテストテストテストテストテストテストテスト\n\
+テストテストテストテストテストテストテストテストテス\n\
+トテストテストテストテストテスト", card_no, reverse);
+            }, 1000);
+        }
     }
 
     // 占い結果を表示させる
@@ -115,6 +119,7 @@
 
         let new_element = document.createElement('div');
         new_element.style.padding = "1em";
+        new_element.className = 'div_content';
         new_element.textContent = content;
         div_center.appendChild(new_element);
 
@@ -188,6 +193,7 @@
         new_element3.appendChild(new_element);
 
         let new_element2 = document.createElement('div');
+        new_element2.className = 'div_card_name';
         new_element2.style.textAlign = 'center';
         new_element2.textContent = card_name[card_no];
         div_center.appendChild(new_element2);
