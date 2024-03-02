@@ -123,7 +123,7 @@ a.btn--shadow {
     transform: translate(-50%, -50%);
     width: 350px;
     height: 120px;
-    top: calc(50% + 70px + 16px);
+    top: calc(50% + 70px + 36px);
     left: 50%;
     max-width: 100%;
     max-height: 100%;
