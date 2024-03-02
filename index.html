@@ -4,6 +4,11 @@
     <meta charset='utf-8'>
     <title>AI占いちゃん</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta property="og:url" content="https://sheepcloud.github.io/divination/"/>
+    <meta property="og:site_name" content="AI占いちゃん"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="AI占いちゃん"/>
+    <meta property="og:description" content="ChatGPTのモデルを利用した占いが無料で利用できます。AIによるお告げとタロット占いがあります。"/>
     <link rel='stylesheet' type='text/css' media='screen' href='static/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='static/button.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,7 +73,7 @@
                 return response.json();
             })
             .then(function(promise) {
-                showContent(promise.content);
+                showContent(promise.content.replaceAll('　', '\n'));
             })
             .catch(function(err) {
                 showContent("AIが応答しません...");
