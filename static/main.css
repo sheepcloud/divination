@@ -76,6 +76,19 @@ img {
     align-items: center;
 }
 
+.div_message_1 {
+    width: 360px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 126px 46px 46px 46px;
+    background-image: url("../static/images/decoration/penga-0306.png");
+    background-repeat: no-repeat;
+    background-size: 360px;
+    background-position: center;
+    align-items: center;
+}
+
 .div_space_l {
     height: 24px;
 }
