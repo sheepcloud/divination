@@ -31,8 +31,8 @@
     <div id="button_div" class="new-tegomin-regular">
         <div id="item1">
             <div class="div_message_1">AI占いの選択</div>
-            <div class="div_space_l"></div>
-            <div class="div_message">お告げ</div>
+            <div class="div_space_s"></div>
+            <div class="div_message_2">お告げ</div>
             <div class="div_space_s"></div>
             <a class="btn btn--orange btn--shadow" href="javascript:begin()">お告げを聞く</a>
             <div class="div_space_l"></div>
@@ -41,6 +41,7 @@
             <a class="btn btn--orange btn--shadow" href="javascript:tarot(1)">過去</a>
             <a class="btn btn--orange btn--shadow" href="javascript:tarot(0)">現在</a>
             <a class="btn btn--orange  btn--shadow" href="javascript:tarot(2)">未来</a>
+            <div class="div_space_l"></div>
         </div>
     </div>
     <div id="loading_div">
@@ -79,7 +80,7 @@
         fetch(url, {"content" : "HOGE"})
             .then(function(response) {
                 if (!response.ok) {
-                    showContent("AIが寝ぼけているようです...");
+                    showContentCore("AIが寝ぼけているようです...");
                 }
                 return response.json();
             })
@@ -87,7 +88,7 @@
                 showContent(promise.content.replaceAll('　', '\n'));
             })
             .catch(function(err) {
-                showContent("AIが応答しません...");
+                showContentCore("AIが応答しません...");
             });
     }
 
@@ -105,7 +106,7 @@
             fetch(url, {"content" : "HOGE"})
                 .then(function(response) {
                     if (!response.ok) {
-                        showContent("AIが寝ぼけているようです...");
+                        showContentCore("AIが寝ぼけているようです...");
                     }
                     return response.json();
                 })
@@ -113,7 +114,7 @@
                     showImage(promise.content, card_no, reverse);
                 })
                 .catch(function(err) {
-                    showContent("AIが応答しません...");
+                    showContentCore("AIが応答しません...");
                 });
         }
         else {
@@ -133,7 +134,7 @@
     }
 
     // 占い結果を表示させる
-    function showContent(content) {
+    function showContentCore(content) {
         document.getElementById('loading_div').style.display = 'none';
         document.getElementById('div_bottom').style.display = 'none';
 
@@ -150,6 +151,18 @@
 
         div_back = document.getElementById('div_back');
         div_back.style.display = 'block';
+    }
+
+    function showContent(content) {
+
+        div_center = document.getElementById('div_center');
+
+        let new_element = document.createElement('div');
+        new_element.className = 'div_message_2';
+        new_element.style = 'transform: translate(0px, 30px);';
+        div_center.appendChild(new_element);
+
+        showContentCore(content);
     }
 
     function showImage(content, card_no, reverse) {
@@ -223,7 +236,7 @@
         new_element2.textContent = card_name[card_no];
         div_center.appendChild(new_element2);
 
-        showContent(content);
+        showContentCore(content);
     }
 
 </script>
