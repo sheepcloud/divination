@@ -26,7 +26,7 @@
     gtag('config', 'G-8RF6H7RH0Z');
     </script>
 </head>
-<body>
+<body class="background">
     <div class="container">
     <div id="button_div" class="new-tegomin-regular">
         <div id="item1">
@@ -232,6 +232,8 @@
         div_center.appendChild(new_element3);
 
         let new_element = document.createElement('img');
+        new_element.width = 300;
+        new_element.hasAttribute = 510;
         new_element.src = "static/images/RWS_Tarot/" + image_ulr[card_no];
         if (reverse == 1) {
             new_element.style.rotate = '180deg'; 
