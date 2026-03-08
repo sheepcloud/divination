@@ -53,3 +53,43 @@ a.btn--radius {
 a.footer {
   color: #000;
 }
+
+.btn--twitter,
+a.btn--twitter {
+  color: #fff;
+  background-color: #000;
+}
+.btn--twitter:hover,
+a.btn--twitter:hover {
+  color: #fff;
+  background-color: #333;
+}
+
+.btn--line,
+a.btn--line {
+  color: #fff;
+  background-color: #06C755;
+}
+.btn--line:hover,
+a.btn--line:hover {
+  color: #fff;
+  background-color: #05b34c;
+}
+
+.share-buttons {
+  max-width: 600px;
+  margin: 1.5em auto 0.5em;
+  text-align: center;
+}
+
+.share-label {
+  color: #000;
+  font-size: 1.4rem;
+  margin-bottom: 0.8em;
+}
+
+.ad-unit {
+  max-width: 600px;
+  margin: 1em auto;
+  min-height: 50px;
+}

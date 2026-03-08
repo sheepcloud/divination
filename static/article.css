@@ -1,0 +1,123 @@
+.article-body {
+    background-color: #fdf6ee;
+    min-height: 100%;
+    margin: 0;
+    font-size: 16px;
+}
+
+.article-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1em 1.5em;
+    font-family: 'New Tegomin', 'Noto Serif JP', serif;
+    color: #333;
+    line-height: 1.8;
+}
+
+.article-header {
+    padding: 1em 0;
+    border-bottom: 2px solid #c0392b;
+    margin-bottom: 1em;
+}
+
+.site-title {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #c0392b;
+    text-decoration: none;
+}
+
+.breadcrumb {
+    font-size: 0.85em;
+    color: #888;
+    margin-bottom: 1.5em;
+}
+
+.breadcrumb a { color: #888; text-decoration: none; }
+
+h1 {
+    font-size: 1.8em;
+    border-left: 4px solid #c0392b;
+    padding-left: 0.5em;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 1.3em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 0.3em;
+    margin-top: 2em;
+    color: #444;
+}
+
+h3 { font-size: 1.1em; color: #555; margin-top: 1.2em; }
+
+section { margin-bottom: 2em; }
+
+p, li { font-size: 1em; margin: 0.6em 0; }
+
+ul, ol { padding-left: 1.5em; }
+
+a { color: #c0392b; }
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5em;
+    margin: 1em 0;
+}
+
+.card-item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+}
+
+.card-item img {
+    display: block;
+    width: 100px;
+    margin: 0 auto 0.8em;
+    border-radius: 4px;
+}
+
+.card-item h3 {
+    text-align: center;
+    margin: 0 0 0.4em;
+    color: #333;
+}
+
+.card-keywords {
+    font-size: 0.85em;
+    color: #c0392b;
+    text-align: center;
+    margin-bottom: 0.8em;
+}
+
+.card-meaning h4 {
+    font-size: 0.9em;
+    margin: 0.5em 0 0.2em;
+    color: #555;
+}
+
+.card-meaning p {
+    font-size: 0.9em;
+    margin: 0 0 0.5em;
+    color: #444;
+}
+
+.ad-section { margin: 2em 0; min-height: 50px; }
+
+.article-footer {
+    margin-top: 3em;
+    padding-top: 1em;
+    border-top: 1px solid #ddd;
+    font-size: 0.85em;
+    color: #888;
+    text-align: center;
+}
+
+.article-footer a { color: #888; text-decoration: none; margin: 0 0.3em; }
+.article-footer a:hover { color: #c0392b; }
+.copyright-text { margin-top: 0.5em; font-size: 0.8em; }

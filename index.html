@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <title>AI占いちゃん</title>
+    <title>ウェイト版タロット占い</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <meta property="og:url" content="https://sheepcloud.github.io/divination/"/>
-    <meta property="og:site_name" content="AI占いちゃん"/>
+    <meta property="og:url" content="https://www.nine-tailed.site/"/>
+    <meta property="og:site_name" content="ウェイト版タロット占い"/>
     <meta property="og:type" content="website"/>
-    <meta property="og:title" content="AI占いちゃん"/>
+    <meta property="og:title" content="ウェイト版タロット占い"/>
     <meta property="og:description" content="ChatGPTのモデルを利用した占いが無料で利用できます。AIによるお告げとタロット占いがあります。"/>
     <link rel='stylesheet' type='text/css' media='screen' href='static/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='static/button.css'>
@@ -30,7 +30,7 @@
     <div class="container">
     <div id="button_div" class="new-tegomin-regular">
         <div id="item1">
-            <div class="div_message_1">AI占いの選択</div>
+            <div class="div_message_1">占いの選択</div>
             <div class="div_space_s"></div>
             <div class="div_message_2">お告げ</div>
             <div class="div_space_s"></div>
@@ -43,11 +43,26 @@
             <a class="btn btn--orange  btn--shadow" href="javascript:tarot(2)">未来</a>
             <div class="div_space_l"></div>
             <div class="copyright">
+                | <a href="about.html" class="footer">サイトについて</a>
+                | <a href="tarot-guide.html" class="footer">カード解説</a>
                 | <a href="privacy_policy.html" class="footer">プライバシーポリシー</a>
                 | <a href="https://forms.gle/Je7PMUZ8pX3RKNSR8" class="footer">ご意見・お問い合わせ</a> |
             </div>
             <div class="copyright">
                 powered by SheepCloud
+            </div>
+            <div class="div_space_s"></div>
+            <!-- Google AdSense 広告ユニット (AdSense管理画面で取得した data-ad-slot の値に変更してください) -->
+            <div style="max-width:600px; margin: 0 auto;">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-2952466024508387"
+                     data-ad-slot="YOUR_AD_SLOT_ID"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <div class="div_space_l"></div>
         </div>
@@ -88,7 +103,7 @@
         fetch(url, {"content" : "HOGE"})
             .then(function(response) {
                 if (!response.ok) {
-                    showContentCore("AIが寝ぼけているようです...");
+                    showContentCore("占い師が寝ぼけているようです...");
                 }
                 return response.json();
             })
@@ -96,7 +111,7 @@
                 showContent(promise.content.replaceAll('　', '\n'));
             })
             .catch(function(err) {
-                showContentCore("AIが応答しません...");
+                showContentCore("占い師が応答しません...");
             });
     }
 
@@ -114,7 +129,7 @@
             fetch(url, {"content" : "HOGE"})
                 .then(function(response) {
                     if (!response.ok) {
-                        showContentCore("AIが寝ぼけているようです...");
+                        showContentCore("占い師が寝ぼけているようです...");
                     }
                     return response.json();
                 })
@@ -122,7 +137,7 @@
                     showImage(promise.content, card_no, reverse);
                 })
                 .catch(function(err) {
-                    showContentCore("AIが応答しません...");
+                    showContentCore("占い師が応答しません...");
                 });
         }
         else {
@@ -154,11 +169,37 @@
         new_element.textContent = content;
         div_center.appendChild(new_element);
 
+        // SNSシェアボタン
+        const pageUrl = encodeURIComponent('https://www.nine-tailed.site/');
+        const shareText = encodeURIComponent('ウェイト版タロット占いで占ってもらいました！あなたも試してみて\u2728');
+        let shareDiv = document.createElement('div');
+        shareDiv.className = 'share-buttons';
+        shareDiv.innerHTML =
+            '<div class="share-label">\u7d50\u679c\u3092\u30b7\u30a7\u30a2\u3059\u308b</div>' +
+            '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + pageUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn--twitter btn--shadow">\ud835\udd4f\u3067\u30b7\u30a7\u30a2</a> ' +
+            '<a href="https://social-plugins.line.me/lineit/share?url=' + pageUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn--line btn--shadow">LINE\u3067\u30b7\u30a7\u30a2</a>';
+        div_center.appendChild(shareDiv);
+
+        // 結果ページ広告ユニット (AdSense管理画面で取得した data-ad-slot の値に変更してください)
+        let adIns = document.createElement('ins');
+        adIns.className = 'adsbygoogle';
+        adIns.style.cssText = 'display:block';
+        adIns.setAttribute('data-ad-client', 'ca-pub-2952466024508387');
+        adIns.setAttribute('data-ad-slot', 'YOUR_AD_SLOT_ID');
+        adIns.setAttribute('data-ad-format', 'auto');
+        adIns.setAttribute('data-full-width-responsive', 'true');
+        let adWrapper = document.createElement('div');
+        adWrapper.className = 'ad-unit';
+        adWrapper.appendChild(adIns);
+        div_center.appendChild(adWrapper);
+
         div_center.style.display = 'block';
         div_center.classList.add("active");
 
         div_back = document.getElementById('div_back');
         div_back.style.display = 'block';
+
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
 
     function showContent(content) {
