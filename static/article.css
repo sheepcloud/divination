@@ -219,3 +219,30 @@ blockquote {
 .post-nav a:hover { text-decoration: underline; }
 .post-nav-prev { text-align: left; }
 .post-nav-next { text-align: right; }
+
+/* シンボル解説エントリー */
+.symbol-entry {
+    display: flex;
+    gap: 1.2em;
+    align-items: flex-start;
+    margin: 1.5em 0;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid #f0e8e0;
+}
+.symbol-entry:last-child { border-bottom: none; }
+.symbol-card-img {
+    width: 80px;
+    min-width: 80px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.symbol-text { flex: 1; }
+.symbol-text h3 { margin-top: 0; }
+@media (max-width: 500px) {
+    .symbol-entry {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .symbol-card-img { width: 110px; }
+}
