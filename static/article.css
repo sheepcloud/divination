@@ -236,6 +236,9 @@ blockquote {
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
+.symbol-card-img-reversed {
+    transform: rotate(180deg);
+}
 .symbol-text { flex: 1; }
 .symbol-text h3 { margin-top: 0; }
 @media (max-width: 500px) {
