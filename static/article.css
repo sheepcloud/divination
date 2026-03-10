@@ -249,3 +249,60 @@ blockquote {
     }
     .symbol-card-img { width: 110px; }
 }
+
+/* セクションイラスト */
+.section-illust {
+    float: right;
+    margin: 0 0 1em 1.5em;
+    width: 160px;
+    opacity: 0.88;
+}
+.section-illust-left {
+    float: left;
+    margin: 0 1.5em 1em 0;
+    width: 160px;
+    opacity: 0.88;
+}
+.section-illust-narrow {
+    float: right;
+    margin: 0 0 1em 1.5em;
+    width: 110px;
+    opacity: 0.88;
+}
+.section-illust-narrow-left {
+    float: left;
+    margin: 0 1.5em 1em 0;
+    width: 110px;
+    opacity: 0.88;
+}
+.section-illust-wide {
+    display: block;
+    margin: 0.8em auto 1.2em;
+    width: 100%;
+    max-width: 480px;
+    opacity: 0.88;
+}
+.section-illust figcaption,
+.section-illust-left figcaption,
+.section-illust-narrow figcaption,
+.section-illust-narrow-left figcaption,
+.section-illust-wide figcaption {
+    font-size: 0.72em;
+    color: #aaa;
+    text-align: center;
+    margin-top: 0.3em;
+}
+.section-illust img { width: 100%; }
+.section-illust-left img { width: 100%; }
+.section-illust-narrow img { width: 100%; }
+.section-illust-narrow-left img { width: 100%; }
+.section-illust-wide img { width: 100%; }
+@media (max-width: 500px) {
+    .section-illust, .section-illust-left,
+    .section-illust-narrow, .section-illust-narrow-left {
+        float: none;
+        display: block;
+        margin: 0.8em auto;
+        width: 130px;
+    }
+}
