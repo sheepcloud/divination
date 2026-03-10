@@ -313,3 +313,79 @@ blockquote {
         width: 130px;
     }
 }
+
+/* Amazon おすすめ商品ボックス */
+.amazon-box {
+    border: 1px solid #e0d0c0;
+    border-radius: 8px;
+    padding: 1.2em 1.4em;
+    margin: 2em 0;
+    background: #fffbf7;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.amazon-box-title {
+    font-size: 0.82em;
+    color: #999;
+    letter-spacing: 0.05em;
+    margin: 0 0 0.8em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid #e8ddd0;
+}
+
+.amazon-item {
+    display: flex;
+    gap: 1.2em;
+    align-items: flex-start;
+}
+
+.amazon-item-img {
+    width: 90px;
+    min-width: 90px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.amazon-item-info {
+    flex: 1;
+}
+
+.amazon-item-name {
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 0.3em;
+    line-height: 1.5;
+}
+
+.amazon-item-desc {
+    font-size: 0.88em;
+    color: #666;
+    margin: 0 0 0.8em;
+    line-height: 1.7;
+}
+
+.amazon-btn {
+    display: inline-block;
+    background-color: #ff9900;
+    color: #111 !important;
+    font-size: 0.88em;
+    font-weight: bold;
+    padding: 0.45em 1.1em;
+    border-radius: 20px;
+    text-decoration: none !important;
+    transition: background-color 0.2s;
+}
+
+.amazon-btn:hover {
+    background-color: #e68a00;
+}
+
+@media (max-width: 480px) {
+    .amazon-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .amazon-item-img { width: 110px; }
+}
