@@ -54,6 +54,18 @@ a.footer {
   color: #000;
 }
 
+.btn--outline,
+a.btn--outline {
+    color: #eb6100;
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 2px solid #eb6100;
+}
+.btn--outline:hover,
+a.btn--outline:hover {
+    color: #fff;
+    background-color: #eb6100;
+}
+
 .btn--twitter,
 a.btn--twitter {
   color: #fff;
