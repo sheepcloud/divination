@@ -42,7 +42,7 @@
             <a class="btn btn--orange btn--shadow" href="javascript:tarot(0)">現在</a>
             <a class="btn btn--orange  btn--shadow" href="javascript:tarot(2)">未来</a>
             <div class="div_space_l"></div>
-            <a class="btn btn--outline btn--shadow" href="tarot-guide.html">カード解説</a>
+            <a class="btn btn--outline btn--shadow" href="cards/">カード解説</a>
             <a class="btn btn--outline btn--shadow" href="column/index.html">コラム</a>
             <div class="div_space_l"></div>
             <div class="copyright">
@@ -268,6 +268,31 @@
             "XXI 世界",
     ];
 
+        card_urls = [
+            "cards/00-fool.html",
+            "cards/01-magician.html",
+            "cards/02-high-priestess.html",
+            "cards/03-empress.html",
+            "cards/04-emperor.html",
+            "cards/05-hierophant.html",
+            "cards/06-lovers.html",
+            "cards/07-chariot.html",
+            "cards/08-strength.html",
+            "cards/09-hermit.html",
+            "cards/10-wheel-of-fortune.html",
+            "cards/11-justice.html",
+            "cards/12-hanged-man.html",
+            "cards/13-death.html",
+            "cards/14-temperance.html",
+            "cards/15-devil.html",
+            "cards/16-tower.html",
+            "cards/17-star.html",
+            "cards/18-moon.html",
+            "cards/19-sun.html",
+            "cards/20-judgement.html",
+            "cards/21-world.html",
+        ];
+
         div_center = document.getElementById('div_center');
 
         let new_element3 = document.createElement('div');
@@ -281,13 +306,26 @@
         if (reverse == 1) {
             new_element.style.rotate = '180deg'; 
         }
-        new_element3.appendChild(new_element);
+        let card_img_link = document.createElement('a');
+        card_img_link.href = card_urls[card_no];
+        card_img_link.appendChild(new_element);
+        new_element3.appendChild(card_img_link);
 
         let new_element2 = document.createElement('div');
         new_element2.className = 'div_card_name';
         new_element2.style.textAlign = 'center';
         new_element2.textContent = card_name[card_no];
         div_center.appendChild(new_element2);
+
+        let card_detail_link = document.createElement('a');
+        card_detail_link.href = card_urls[card_no];
+        card_detail_link.className = 'btn btn--outline btn--shadow';
+        card_detail_link.style.cssText = 'display:inline-block; margin: 0.5em auto 0; font-size: 0.85em;';
+        card_detail_link.textContent = 'カード解説を読む';
+        let card_detail_div = document.createElement('div');
+        card_detail_div.style.textAlign = 'center';
+        card_detail_div.appendChild(card_detail_link);
+        div_center.appendChild(card_detail_div);
 
         showContentCore(content);
     }
