@@ -3,7 +3,11 @@
 }
 
 .article-body {
-    background-color: #fdf6ee;
+    background-image: url(./images/decoration/paper_00105.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     min-height: 100%;
     margin: 0;
     font-size: 16px;
@@ -34,11 +38,11 @@
 
 .breadcrumb {
     font-size: 0.85em;
-    color: #888;
+    color: #c0392b;
     margin-bottom: 1.5em;
 }
 
-.breadcrumb a { color: #888; text-decoration: none; }
+.breadcrumb a { color: #c0392b; text-decoration: none; }
 
 h1 {
     font-size: 1.8em;
@@ -49,7 +53,7 @@ h1 {
 
 h2 {
     font-size: 1.3em;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #c0392b;
     padding-bottom: 0.3em;
     margin-top: 2em;
     color: #444;
@@ -119,11 +123,11 @@ a { color: #c0392b; }
     padding-top: 1em;
     border-top: 1px solid #ddd;
     font-size: 0.85em;
-    color: #888;
+    color: #444;
     text-align: center;
 }
 
-.article-footer a { color: #888; text-decoration: none; margin: 0 0.3em; }
+.article-footer a { color: #444; text-decoration: none; margin: 0 0.3em; }
 .article-footer a:hover { color: #c0392b; }
 .copyright-text { margin-top: 0.5em; font-size: 0.8em; }
 
@@ -150,7 +154,10 @@ a { color: #c0392b; }
     color: #999;
 }
 
-.post-date { white-space: nowrap; }
+.post-date {
+    color: #444;
+    white-space: nowrap;
+}
 
 .post-category {
     background-color: #c0392b;
