@@ -1,3 +1,6 @@
+// APIのベースURL
+const API_BASE_URL = 'http://tk2-234-26799.vs.sakura.ne.jp';
+
 // ローディング表示を非表示にする
 document.getElementById('loading_div').style.display = 'none';
 
@@ -13,7 +16,7 @@ function begin() {
     document.getElementById('loading_div').style.display = 'block';
     document.getElementById('div_bottom').style.display = 'block';
 
-    let url = "https://fortunereading.azurewebsites.net/result";
+    let url = API_BASE_URL + "/result";
     fetch(url, {"content" : "HOGE"})
         .then(function(response) {
             if (!response.ok) {
@@ -39,7 +42,7 @@ function tarot(tense) {
 
     debug = false;
     if (debug == false) {
-        let url = "https://fortunereading.azurewebsites.net/tarot_result?tense=" + tense + "&card_no=" + card_no + "&reverse=" + reverse;
+        let url = API_BASE_URL + "/tarot_result?tense=" + tense + "&card_no=" + card_no + "&reverse=" + reverse;
         fetch(url, {"content" : "HOGE"})
             .then(function(response) {
                 if (!response.ok) {
