@@ -1,5 +1,5 @@
 // APIのベースURL
-const API_BASE_URL = 'http://tk2-234-26799.vs.sakura.ne.jp';
+const API_BASE_URL = 'https://fortunereading.azurewebsites.net';
 
 // ローディング表示を非表示にする
 document.getElementById('loading_div').style.display = 'none';
