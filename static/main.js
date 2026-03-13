@@ -1,5 +1,5 @@
 // APIのベースURL
-const API_BASE_URL = 'https://fortunereading.azurewebsites.net';
+const API_BASE_URL = 'https://api.nine-tailed.site';
 
 // ローディング表示を非表示にする
 document.getElementById('loading_div').style.display = 'none';
