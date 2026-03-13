@@ -22,9 +22,8 @@
 | `cards/index.html` | 大アルカナ22枚のカード一覧ページ |
 | `cards/00-fool.html` ～ `cards/21-world.html` | 各カードの正位置・逆位置の意味解説ページ |
 | `column/index.html` | コラム一覧ページ |
-| `column/tarot-history.html` | コラム：タロットカードの歴史 |
-| `column/tarot-symbols.html` | コラム：タロットのシンボル |
-| `column/tarot-card-orientation.html` | コラム：カードの向き（正位置・逆位置） |
+| `column/*.html` | 各コラム記事ページ |
+| `static/main.js` | メインページ用JavaScriptファイル（占い処理・API連携・結果表示） |
 | `static/main.css` | メインページ用スタイルシート |
 | `static/button.css` | ボタン・SNSシェアボタン用スタイルシート |
 | `static/article.css` | 記事・コラムページ共通スタイルシート |
@@ -42,8 +41,8 @@
 
 | エンドポイント | 用途 | メソッド |
 |---|---|---|
-| `https://fortunereading.azurewebsites.net/result` | お告げ文の生成 | GET |
-| `https://fortunereading.azurewebsites.net/tarot_result` | タロット占い結果の生成 | GET |
+| `https://api.nine-tailed.site/result` | お告げ文の生成 | GET |
+| `https://api.nine-tailed.site/tarot_result` | タロット占い結果の生成 | GET |
 
 **タロット占いのクエリパラメータ:**
 
@@ -53,7 +52,7 @@
 | `card_no` | int | カード番号（0〜21、フロントエンドでランダム選択） |
 | `reverse` | int | 正逆位置（0: 正位置, 1: 逆位置、フロントエンドでランダム選択） |
 
-バックエンドは **Microsoft Azure App Service** 上で動作します。
+バックエンドは `api.nine-tailed.site` ドメインで提供されます。
 
 ### Google AdSense
 
